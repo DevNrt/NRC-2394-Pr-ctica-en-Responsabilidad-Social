@@ -1,0 +1,683 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conectando Generaciones - Blog del Proyecto Social</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+        
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .university {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 25px;
+            display: inline-block;
+        }
+        
+        .content {
+            padding: 2rem;
+        }
+        
+        .blog-post {
+            background: white;
+            margin-bottom: 2rem;
+            border-radius: 15px;
+            padding: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-left: 5px solid #3498db;
+        }
+        
+        .post-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #3498db;
+            padding-bottom: 0.5rem;
+        }
+        
+        .post-meta {
+            color: #666;
+            margin-bottom: 1.5rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        
+        .meta-item {
+            background: #f8f9fa;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.9rem;
+        }
+        
+        .content-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+        
+        .highlight {
+            background: linear-gradient(120deg, #a8edea 0%, #fed6e3 100%);
+            padding: 0.2rem 0.5rem;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+        
+        .objectives {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+        }
+        
+        .objectives h3 {
+            text-align: center;
+            margin-bottom: 1.5rem;
+            font-size: 1.4rem;
+        }
+        
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1rem;
+        }
+        
+        .objective-card {
+            background: rgba(255,255,255,0.1);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+        
+        .objective-card h4 {
+            margin-bottom: 0.5rem;
+            font-size: 1.1rem;
+        }
+        
+        .problem-section {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border-left: 5px solid #e74c3c;
+        }
+        
+        .problem-title {
+            color: #e74c3c;
+            font-size: 1.6rem;
+            text-align: center;
+            margin-bottom: 1.5rem;
+        }
+        
+        .context-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1.5rem;
+        }
+        
+        .context-card {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            border-top: 4px solid #3498db;
+        }
+        
+        .context-card h4 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .objective-general {
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            text-align: center;
+        }
+        
+        .objective-general h3 {
+            font-size: 1.6rem;
+            margin-bottom: 1rem;
+        }
+        
+        .specific-objectives {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+            border: 2px solid #27ae60;
+        }
+        
+        .specific-objectives h3 {
+            color: #27ae60;
+            font-size: 1.4rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .objectives-list {
+            list-style: none;
+        }
+        
+        .objectives-list li {
+            background: #f8f9fa;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            border-left: 4px solid #27ae60;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .objectives-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0.7rem;
+            color: #27ae60;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        .justification h3 {
+            color: #8e44ad;
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #8e44ad;
+            padding-bottom: 0.5rem;
+        }
+        
+        .justification h4 {
+            color: #34495e;
+            margin-top: 1.5rem;
+            margin-bottom: 0.8rem;
+            font-size: 1.2rem;
+        }
+        
+        .impact {
+            background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .impact-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .impact h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .cta h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .cta p {
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background: rgba(255,255,255,0.2);
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            margin: 0.5rem;
+        }
+        
+        .btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: translateY(-2px);
+        }
+        
+        .personal-section {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            color: white;
+            padding: 2.5rem 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .personal-info {
+            display: grid;
+            grid-template-columns: 1fr 200px;
+            gap: 2rem;
+            align-items: center;
+        }
+        
+        .photo-placeholder {
+            width: 180px;
+            height: 180px;
+            border: 3px dashed rgba(255,255,255,0.6);
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+            text-align: center;
+            background: rgba(255,255,255,0.1);
+        }
+        
+        .parte-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem;
+            border-radius: 15px;
+            margin: 2rem 0;
+        }
+        
+        .parte-section h2 {
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: center;
+        }
+        
+        .question-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .question-list li {
+            background: rgba(255,255,255,0.1);
+            margin-bottom: 1rem;
+            padding: 1rem;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 2.5rem;
+        }
+        
+        .question-list li::before {
+            content: '+';
+            position: absolute;
+            left: 1rem;
+            color: #ff69b4;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+        
+        .requirement-list {
+            list-style: none;
+            margin: 1rem 0;
+        }
+        
+        .requirement-list li {
+            background: rgba(255,255,255,0.1);
+            margin-bottom: 0.8rem;
+            padding: 0.8rem;
+            border-radius: 8px;
+            position: relative;
+            padding-left: 2rem;
+        }
+        
+        .requirement-list li::before {
+            content: '•';
+            position: absolute;
+            left: 0.7rem;
+            color: white;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        footer h3 {
+            margin-bottom: 0.5rem;
+        }
+        
+        footer p {
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        .social {
+            margin-top: 1rem;
+        }
+        
+        .social a {
+            color: white;
+            text-decoration: none;
+            margin: 0 0.5rem;
+            font-size: 1.5rem;
+        }
+        
+        .social a:hover {
+            color: #3498db;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .blog-post {
+                padding: 1.5rem;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .personal-info {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .photo-placeholder {
+                margin: 0 auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🔐 Conectando Generaciones</h1>
+            <p class="subtitle">Conciencia en Ciberseguridad para Adultos Mayores</p>
+            <div class="university">
+                <h3>Corporación Universitaria Minuto de Dios - UNIMINUTO</h3>
+                <p>Centro de Educación para el Desarrollo | Área de Responsabilidad Social</p>
+            </div>
+        </header>
+
+        <div class="content">
+            <!-- Parte 1 -->
+            <article class="blog-post">
+                <div class="parte-section">
+                    <h2>Parte 1</h2>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <h3 style="color: #ff69b4; margin-bottom: 1rem;">¿Quiénes son ustedes?</h3>
+                        <div style="display: grid; grid-template-columns: 1fr 200px; gap: 1.5rem; align-items: center;">
+                            <p style="line-height: 1.6;">Hola, mi nombre es <strong>Nicolas Rodriguez Tinoco</strong>, soy estudiante de Ingeniería de Sistemas de 8º semestre de la Corporación Universitaria Minuto de Dios. Actualmente soy ingeniero en ciberseguridad en tecnologías Fortinet, me interesa mucho el deporte y la tecnología en general.</p>
+                            <div class="photo-placeholder">
+                                📸<br>Espacio para<br>foto familiar
+                            </div>
+                        </div>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <h3 style="color: #ff69b4; margin-bottom: 1rem;">¿Con qué comunidad o grupo social van a trabajar?</h3>
+                        <p style="line-height: 1.6;">Voy a trabajar con mi familia y la familia de mis compañeros de trabajo más cercanos. Este grupo incluye adultos mayores que requieren fortalecer sus conocimientos en ciberseguridad para protegerse de amenazas digitales y fraudes en línea.</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <h3 style="color: #ff69b4; margin-bottom: 1rem;">¿Dónde se encuentra ubicada esa comunidad o grupo social?</h3>
+                        <p style="line-height: 1.6;">La comunidad se encuentra ubicada en <strong>Bogotá, Colombia</strong>. Las familias participantes residen en diferentes sectores de la ciudad, lo que nos permite tener una perspectiva diversa de las necesidades en ciberseguridad según el contexto socioeconómico.</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
+                        <h3 style="color: #ff69b4; margin-bottom: 1rem;">¿En qué modalidad van a hacer su práctica?</h3>
+                        <p style="line-height: 1.6;">La práctica se realizará en modalidad <strong>híbrida</strong>, combinando sesiones presenciales en los hogares familiares para actividades prácticas y demostraciones, con sesiones virtuales para seguimiento, resolución de dudas y refuerzo de conceptos aprendidos.</p>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Parte 2 -->
+            <article class="blog-post">
+                <div class="parte-section">
+                    <h2>Parte 2</h2>
+                    
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <h3 style="color: #ff69b4; margin-bottom: 1rem;">Título</h3>
+                        <p style="line-height: 1.6;"><strong>"Protección Digital Familiar: Fortaleciendo la Ciberseguridad en Adultos Mayores de Bogotá"</strong></p>
+                        <p style="line-height: 1.6; margin-top: 0.5rem;">Este título refleja el enfoque familiar del proyecto y su contexto específico en la capital colombiana, relacionándose directamente con el Proyecto Social de Formación en ciberseguridad inclusiva.</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <h3 style="color: #ff69b4; margin-bottom: 1rem;">Planteamiento de la problemática y contexto</h3>
+                        
+                        <h4 style="color: white; margin-bottom: 0.8rem;">Problemática:</h4>
+                        <p style="line-height: 1.6; margin-bottom: 1rem;">Los adultos mayores en el entorno familiar cercano presentan alta vulnerabilidad ante amenazas cibernéticas como phishing, estafas telefónicas y fraudes bancarios digitales. Esta problemática se evidencia en la falta de conocimiento sobre medidas básicas de protección digital y la confianza excesiva en comunicaciones fraudulentas.</p>
+                        
+                        <h4 style="color: white; margin-bottom: 0.8rem;">Contextualización del territorio:</h4>
+                        <p style="line-height: 1.6; margin-bottom: 1rem;">El proyecto se desarrolla en Bogotá, Colombia, específicamente con familias residentes en diferentes localidades de la ciudad. Bogotá, como centro tecnológico del país, presenta paradójicamente altos índices de cibercrimen dirigido a población vulnerable, especialmente adultos mayores que han adoptado tecnologías digitales sin la formación adecuada en seguridad.</p>
+                        
+                        <h4 style="color: white; margin-bottom: 0.8rem;">Implementación visual:</h4>
+                        <p style="line-height: 1.6;">Se incluirán fotografías de las sesiones de capacitación familiar y mapas de geolocalización de las zonas de intervención en Bogotá, documentando el impacto territorial del proyecto.</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <h3 style="color: #ff69b4; margin-bottom: 1rem;">Objetivos</h3>
+                        
+                        <h4 style="color: white; margin-bottom: 0.8rem;">Objetivo General:</h4>
+                        <p style="line-height: 1.6; margin-bottom: 1rem;">Fortalecer las competencias en ciberseguridad de adultos mayores del entorno familiar en Bogotá, mediante un programa educativo híbrido que les permita identificar, prevenir y responder adecuadamente ante amenazas digitales, reduciendo su vulnerabilidad ante el cibercrimen.</p>
+                        
+                        <h4 style="color: white; margin-bottom: 0.8rem;">Objetivos Específicos:</h4>
+                        <ol style="line-height: 1.6; padding-left: 1.5rem;">
+                            <li style="margin-bottom: 0.8rem;"><strong>Diagnosticar el nivel actual de conocimiento</strong> en ciberseguridad de los participantes mediante evaluaciones iniciales que permitan personalizar el programa educativo según las necesidades específicas identificadas.</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>Implementar talleres prácticos de identificación de amenazas</strong> utilizando casos reales y simulaciones que permitan a los participantes reconocer correos fraudulentos, llamadas sospechosas y sitios web maliciosos de manera efectiva.</li>
+                            <li style="margin-bottom: 0.8rem;"><strong>Establecer protocolos familiares de seguridad digital</strong> que incluyan procedimientos de verificación, canales de comunicación para consultas y estrategias de respuesta ante intentos de fraude o ataques cibernéticos.</li>
+                            <li><strong>Evaluar el impacto del programa</strong> mediante seguimientos periódicos que midan la retención de conocimientos, la aplicación de medidas preventivas y la reducción de incidentes de seguridad en el grupo participante.</li>
+                        </ol>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px; margin-bottom: 1.5rem;">
+                        <h3 style="color: #ff69b4; margin-bottom: 1rem;">Justificación</h3>
+                        
+                        <h4 style="color: white; margin-bottom: 0.8rem;">Justificación Académica:</h4>
+                        <p style="line-height: 1.6; margin-bottom: 1rem;">Este proyecto integra conocimientos de ciberseguridad, pedagogía gerontológica y responsabilidad social, contribuyendo al desarrollo de competencias profesionales en ingeniería de sistemas con enfoque social. Permite aplicar teorías de aprendizaje adulto en contextos tecnológicos, generando conocimiento aplicable en futuros proyectos de inclusión digital segura.</p>
+                        
+                        <h4 style="color: white; margin-bottom: 0.8rem;">Justificación Científica:</h4>
+                        <p style="line-height: 1.6; margin-bottom: 1rem;">La ciberseguridad en poblaciones vulnerables es un campo de investigación emergente que requiere evidencia empírica sobre metodologías efectivas. Este proyecto contribuirá con datos cualitativos y cuantitativos sobre estrategias educativas adaptadas, aportando a la literatura científica en seguridad informática inclusiva y gerontagogía digital.</p>
+                        
+                        <h4 style="color: white; margin-bottom: 0.8rem;">Justificación Social:</h4>
+                        <p style="line-height: 1.6;">La protección digital de adultos mayores es una responsabilidad social que impacta directamente en su calidad de vida, autonomía y bienestar económico. Este proyecto promueve la equidad digital, fortalece la cohesión familiar intergeneracional y contribuye a la construcción de comunidades digitalmente resilientes, generando un modelo replicable para otras familias y comunidades.</p>
+                    </div>
+
+                    <div style="background: rgba(255,255,255,0.1); padding: 1.5rem; border-radius: 10px;">
+                        <h3 style="color: #ff69b4; margin-bottom: 1rem;">Referencias</h3>
+                        <div style="line-height: 1.8; font-size: 0.95rem;">
+                            <p style="margin-bottom: 0.8rem;">Cybersecurity and Infrastructure Security Agency. (2023). <em>Cybersecurity guidance for older adults</em>. CISA Publications.</p>
+                            <p style="margin-bottom: 0.8rem;">Flores, R., & Martínez, L. (2024). Vulnerabilidades cibernéticas en adultos mayores: Un estudio latinoamericano. <em>Revista de Seguridad Digital</em>, 12(3), 45-62.</p>
+                            <p style="margin-bottom: 0.8rem;">Policía Nacional de Colombia. (2024). <em>Reporte de cibercrimen en Colombia 2023</em>. Centro Cibernético Policial.</p>
+                            <p>UNESCO. (2023). Digital literacy and cybersecurity for vulnerable populations. <em>Technology and Society Review</em>, 8(2), 123-140.</p>
+                        </div>
+                    </div>
+                </div>
+            </article>
+
+            <!-- Primera Entrada del Blog -->
+            <article class="blog-post">
+                <h2 class="post-title">🔐 Introducción al Proyecto: Conciencia en Ciberseguridad</h2>
+                <div class="post-meta">
+                    <div class="meta-item">📅 Septiembre 2025</div>
+                    <div class="meta-item">🎯 Proyecto Social de Formación</div>
+                    <div class="meta-item">👥 Adultos Mayores</div>
+                    <div class="meta-item">🏠 Modalidad Híbrida</div>
+                </div>
+                
+                <p class="content-text">En la era digital actual, la ciberseguridad se ha convertido en una necesidad fundamental para todos los usuarios de tecnología. Sin embargo, existe una <span class="highlight">brecha significativa en la conciencia sobre ciberseguridad</span> que afecta especialmente a los adultos mayores, quienes enfrentan mayores riesgos de ser víctimas de fraudes digitales, estafas telefónicas y ataques cibernéticos.</p>
+                
+                <p class="content-text">Este proyecto surge de la necesidad de crear espacios educativos que permitan a nuestros adultos mayores no solo usar la tecnología, sino hacerlo de manera segura y consciente. La propuesta nace de la experiencia profesional en ciberseguridad con tecnologías Fortinet y la observación directa de las vulnerabilidades que enfrentan personas como nuestros familiares y los familiares de compañeros de trabajo.</p>
+                
+                <div class="objectives">
+                    <h3>🛡️ Objetivos del Proyecto</h3>
+                    <div class="objectives-grid">
+                        <div class="objective-card">
+                            <h4>🔒 Conciencia Digital</h4>
+                            <p>Desarrollar habilidades de identificación de amenazas cibernéticas básicas</p>
+                        </div>
+                        <div class="objective-card">
+                            <h4>📱 Uso Seguro</h4>
+                            <p>Promover prácticas seguras en dispositivos móviles y computadores</p>
+                        </div>
+                        <div class="objective-card">
+                            <h4>🚨 Prevención de Fraudes</h4>
+                            <p>Capacitar en la identificación y prevención de estafas digitales</p>
+                        </div>
+                        <div class="objective-card">
+                            <h4>🔐 Protección Personal</h4>
+                            <p>Enseñar el manejo seguro de información personal y financiera</p>
+                        </div>
+                        <div class="objective-card">
+                            <h4>🤝 Red de Apoyo</h4>
+                            <p>Crear una red familiar de apoyo en temas de ciberseguridad</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <p class="content-text">El enfoque innovador consiste en utilizar <span class="highlight">metodologías pedagógicas adaptadas</span> a las características de los adultos mayores, empleando analogías con situaciones cotidianas y ejemplos prácticos de su entorno, para facilitar la comprensión de conceptos de ciberseguridad de manera simple y aplicable.</p>
+            </article>
+
+            <!-- Segunda Entrada del Blog -->
+            <article class="blog-post">
+                <h2 class="post-title">🎯 Definición de la Problemática y Contexto de Ciberseguridad</h2>
+                <div class="post-meta">
+                    <div class="meta-item">🔍 Análisis de Problemática</div>
+                    <div class="meta-item">🌐 Contexto Digital</div>
+                    <div class="meta-item">📊 Investigación en Seguridad</div>
+                </div>
+
+                <div class="problem-section">
+                    <h3 class="problem-title">🚨 Problemática Identificada</h3>
+                    <p class="content-text">La <strong>vulnerabilidad digital de los adultos mayores ante amenazas cibernéticas</strong> representa una problemática social compleja que los expone a fraudes financieros, robo de identidad y estafas digitales. Esta situación se agrava cuando personas de la tercera edad interactúan con tecnologías sin conocimiento sobre las amenazas existentes y las medidas de protección necesarias.</p>
+                    
+                    <div class="context-grid">
+                        <div class="context-card">
+                            <h4>🎣 Amenazas Comunes</h4>
+                            <p>Phishing, estafas telefónicas, fraudes bancarios digitales y suplantación de identidad dirigidos específicamente a adultos mayores.</p>
+                        </div>
+                        <div class="context-card">
+                            <h4>💳 Riesgos Financieros</h4>
+                            <p>Pérdidas económicas significativas por falta de conocimiento en seguridad digital y confianza excesiva en comunicaciones fraudulentas.</p>
+                        </div>
+                        <div class="context-card">
+                            <h4>👨‍👩‍👧‍👦 Impacto Familiar</h4>
+                            <p>Afectación emocional y económica de toda la familia cuando los adultos mayores son víctimas de ciberataques.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="objective-general">
+                    <h3>🎯 Objetivo General</h3>
+                    <p><strong>Desarrollar un programa de conciencia en ciberseguridad adaptado para adultos mayores, utilizando metodologías pedagógicas simples que les permitan identificar, prevenir y responder ante amenazas digitales comunes, promoviendo su protección digital y reduciendo su vulnerabilidad ante fraudes cibernéticos.</strong></p>
+                </div>
+
+                <div class="specific-objectives">
+                    <h3>📋 Objetivos Específicos</h3>
+                    <ul class="objectives-list">
+                        <li><strong>Capacitar en identificación de amenazas</strong> enseñando a reconocer correos fraudulentos, llamadas sospechosas y sitios web maliciosos a través de ejemplos prácticos y cotidianos.</li>
+                        <li><strong>Implementar prácticas de seguridad básicas</strong> como creación de contraseñas seguras, verificación de comunicaciones y uso seguro de redes sociales y aplicaciones de mensajería.</li>
+                        <li><strong>Desarrollar protocolos de respuesta</strong> que permitan a los participantes saber qué hacer cuando sospechen de una amenaza o hayan sido víctimas de un intento de fraude.</li>
+                        <li><strong>Crear una red familiar de apoyo</strong> involucrando a familiares más jóvenes en el proceso de protección y estableciendo canales de comunicación para consultas de seguridad.</li>
+                    </ul>
+                </div>
+
+                <div class="justification">
+                    <h3>⚖️ Justificación del Proyecto</h3>
+                    
+                    <h4>📚 Justificación Académica</h4>
+                    <p class="content-text">Este proyecto se fundamenta en principios de educación en ciberseguridad y gerontagogía, aplicando metodologías de aprendizaje adaptadas a adultos mayores. Contribuye al conocimiento en el campo de la ciberseguridad inclusiva, generando estrategias educativas innovadoras que pueden ser replicadas en contextos similares.</p>
+                    
+                    <h4>🔬 Justificación Científica</h4>
+                    <p class="content-text">La investigación en conciencia de ciberseguridad para adultos mayores es un campo emergente que requiere estudios empíricos sobre metodologías efectivas. Este proyecto aporta datos sobre el impacto de estrategias educativas adaptadas, contribuyendo a la literatura científica sobre protección digital y envejecimiento seguro.</p>
+                    
+                    <h4>🤝 Justificación Social</h4>
+                    <p class="content-text">La vulnerabilidad digital de los adultos mayores representa un problema de equidad e inclusión digital que puede generar pérdidas económicas significativas y afectación emocional. Este proyecto promueve la protección digital como un derecho fundamental, fortalece la seguridad familiar y contribuye a la construcción de una sociedad digital más segura para todos.</p>
+                </div>
+
+                <div class="impact">
+                    <div class="impact-icon">🛡️</div>
+                    <h3>Impacto Esperado en la Comunidad</h3>
+                    <p>Se espera beneficiar directamente a familias cercanas y crear un efecto multiplicador hacia otras redes familiares. El proyecto busca generar un modelo sostenible de educación en ciberseguridad que pueda ser implementado en diferentes comunidades, creando una red de adultos mayores digitalmente protegidos y conscientes.</p>
+                </div>
+            </article>
+
+            <div class="cta">
+                <h2>🔐 ¡Únete a Esta Transformación en Seguridad Digital!</h2>
+                <p>Este proyecto representa una oportunidad única para construir puentes generacionales y promover la protección digital. Juntos podemos crear un entorno digital más seguro donde la edad no sea una vulnerabilidad sino una fortaleza basada en la experiencia y el conocimiento.</p>
+                <a href="https://uniminuto0-my.sharepoint.com/:f:/g/personal/nicolas_rodriguez-ti_uniminuto_edu_co/EhZOSWbnYzxEl8d7RjbdO1ABVHVXYZ063xe67DBYlQ49yw?e=DbNMnc" class="btn" target="_blank">📁 Acceder a Carpeta del Curso</a>
+                <a href="#contacto" class="btn">Conoce Más del Proyecto</a>
+            </div>
+        </div>
+
+        <footer>
+            <h3>Proyecto de Responsabilidad Social UNIMINUTO</h3>
+            <p><strong>Conectando Generaciones: Conciencia en Ciberseguridad para Adultos Mayores</strong></p>
+            <p>Por: Nicolas Rodriguez Tinoco - Ingeniería de Sistemas</p>
+            <p>© 2025 - Todos los derechos reservados</p>
+            <div class="social">
+                <a href="#" title="Email">📧</a>
+                <a href="#" title="WhatsApp">📱</a>
+                <a href="#" title="Web">🌐</a>
+            </div>
+        </footer>
+    </div>
+</body>
+</html>
