@@ -410,6 +410,187 @@
         .social a:hover {
             color: #3498db;
         }
+
+     .section {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 20px;
+            margin: 2rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        
+        .section h2 {
+            color: #2c3e50;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            text-align: left;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            border-left: 5px solid #667eea;
+            padding-left: 1rem;
+        }
+        
+        .info-box {
+            background: linear-gradient(135deg, #e8f4f8, #d4e9f7);
+            border-left: 5px solid #2196f3;
+            padding: 1.5rem;
+            border-radius: 10px;
+            margin: 1.5rem 0;
+        }
+        
+        .info-box strong {
+            color: #1976d2;
+            font-size: 1rem;
+        }
+        
+        .info-box p {
+            line-height: 1.8;
+            margin-bottom: 0.8rem;
+            color: #2c3e50;
+        }
+        
+        .info-box ul {
+            margin: 1rem 0;
+            line-height: 1.8;
+        }
+        
+        .info-box h3 {
+            color: #1976d2;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+        
+        .objetivos-list {
+            background: linear-gradient(135deg, #c8f7dc, #a8edea);
+            padding: 1.8rem;
+            border-radius: 15px;
+            margin: 1.5rem 0;
+        }
+        
+        .objetivos-list h3 {
+            color: #2c3e50;
+            margin-bottom: 1.2rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .objetivos-list ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        
+        .objetivos-list li {
+            background: rgba(255, 255, 255, 0.7);
+            padding: 0.8rem 1rem;
+            margin-bottom: 0.8rem;
+            border-radius: 8px;
+            color: #2c3e50;
+            font-size: 0.95rem;
+        }
+        
+        .semana-container {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .evidencia-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border: 2px solid #e0e7ff;
+            transition: all 0.3s ease;
+        }
+        
+        .evidencia-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+        }
+        
+        .week-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.5rem 1.2rem;
+            border-radius: 25px;
+            font-weight: bold;
+            font-size: 0.85rem;
+            margin-bottom: 1.2rem;
+        }
+        
+        .evidencia-title {
+            font-size: 1.3rem;
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 0.5rem;
+            line-height: 1.4;
+        }
+        
+        .evidencia-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+        
+        .evidencia-description {
+            padding: 0;
+            margin: 0;
+            line-height: 1.7;
+        }
+        
+        .evidencia-description strong {
+            color: #2c3e50;
+            display: block;
+            margin: 1rem 0 0.5rem 0;
+            font-size: 0.95rem;
+        }
+        
+        .evidencia-description ul {
+            margin: 0.5rem 0 0 1rem;
+            padding-left: 0.5rem;
+        }
+        
+        .evidencia-description li {
+            margin-bottom: 0.7rem;
+            color: #4a5568;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        
+        .evidencia-description li strong {
+            display: inline;
+            color: #2c3e50;
+            margin: 0;
+            font-size: 0.9rem;
+        }
+        
+        .btn-presentacion {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 0.8rem 1.8rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+            font-size: 0.9rem;
+        }
+        
+        .btn-presentacion:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(102, 126, 234, 0.5);
+        }
         
         @media (max-width: 768px) {
             .container {
@@ -441,6 +622,52 @@
             .photo-placeholder {
                 margin: 0 auto;
             }
+            
+            .section {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+            
+            .semana-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .evidencia-card {
+                padding: 1.5rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .content {
+                padding: 1rem;
+            }
+            
+            .blog-post {
+                padding: 1.5rem;
+            }
+            
+            .post-meta {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+            
+            .personal-info {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+            
+            .photo-placeholder {
+                margin: 0 auto;
+            }
+            
         }
     </style>
 </head>
@@ -603,6 +830,91 @@
 
             
         </div>
+
+        <div class="section">
+            <h2>📚 Evidencias de Actividades - Semanas 3 y 4</h2>
+            
+            <div class="info-box">
+                <strong>📌 Período de implementación:</strong> Durante las semanas 3 y 4 de nuestra práctica, desarrollamos talleres educativos especializados en ciberseguridad, enfocados en las necesidades específicas de adultos mayores y familias.
+            </div>
+
+            <div class="objetivos-list">
+                <h3>🎯 Objetivos de las sesiones:</h3>
+                <ul>
+                    <li>Sensibilizar sobre las amenazas digitales más comunes</li>
+                    <li>Enseñar prácticas seguras para la navegación en internet</li>
+                    <li>Capacitar en la creación y gestión de contraseñas seguras</li>
+                    <li>Prevenir fraudes y phishing en plataformas digitales</li>
+                    <li>Fortalecer la confianza en el uso de tecnología</li>
+                </ul>
+            </div>
+
+            <div class="semana-container">
+                <div class="evidencia-card">
+                    <span class="week-badge">📅 Semana 3</span>
+                    <div class="evidencia-title">
+                        <span class="evidencia-icon">🛡️</span>
+                        Taller: Ciberseguridad Básica para Adultos Mayores y Familias
+                    </div>
+                    <div class="evidencia-description">
+                        <strong>Temáticas abordadas:</strong>
+                        <ul>
+                            <li><strong>Introducción a la ciberseguridad:</strong> Conceptos fundamentales y su importancia en la vida cotidiana</li>
+                            <li><strong>Phishing y correos falsos:</strong> Identificación de mensajes fraudulentos y cómo protegerse</li>
+                            <li><strong>Contraseñas seguras:</strong> Principios básicos para crear claves robustas</li>
+                            <li><strong>Fraudes por WhatsApp:</strong> Reconocimiento de estafas comunes en mensajería</li>
+                            <li><strong>Consejos prácticos:</strong> Recomendaciones para compras online, redes sociales y banca digital</li>
+                            <li><strong>Protocolo de respuesta:</strong> Qué hacer si se es víctima de fraude</li>
+                        </ul>
+                        <strong>Metodología:</strong> Presentación interactiva con ejemplos reales, casos prácticos y sesión de preguntas y respuestas.
+                    </div>
+                    <a href="presentacion_ciberseguridad.html" target="_blank" class="btn-presentacion">
+                        📊 Ver Presentación Completa
+                    </a>
+                </div>
+
+                <div class="evidencia-card">
+                    <span class="week-badge">📅 Semana 4</span>
+                    <div class="evidencia-title">
+                        <span class="evidencia-icon">🔑</span>
+                        Taller Especializado: Todo sobre Contraseñas Seguras
+                    </div>
+                    <div class="evidencia-description">
+                        <strong>Contenido profundizado:</strong>
+                        <ul>
+                            <li><strong>Funcionamiento técnico:</strong> Cómo operan las contraseñas y sistemas de autenticación</li>
+                            <li><strong>Vulnerabilidades comunes:</strong> Por qué fallan las contraseñas débiles y tiempo de descifrado</li>
+                            <li><strong>Contraseñas peligrosas:</strong> Top 10 de claves más usadas y riesgosas</li>
+                            <li><strong>Anatomía de contraseñas fuertes:</strong> Componentes esenciales para máxima seguridad</li>
+                            <li><strong>Métodos de creación:</strong> Técnicas prácticas (frases memorables, sustitución, combinación)</li>
+                            <li><strong>Gestión eficiente:</strong> Administradores de contraseñas y mejores prácticas</li>
+                            <li><strong>Autenticación 2FA:</strong> Capa adicional de protección y su implementación</li>
+                            <li><strong>Detección de compromisos:</strong> Señales de alerta y plan de acción</li>
+                            <li><strong>Herramientas prácticas:</strong> Recursos y aplicaciones recomendadas</li>
+                        </ul>
+                        <strong>Metodología:</strong> Taller hands-on con ejercicios prácticos, demostraciones en vivo y acompañamiento personalizado.
+                    </div>
+                    <a href="presentacion_contrasenas.html" target="_blank" class="btn-presentacion">
+                        📊 Ver Presentación Completa
+                    </a>
+                </div>
+            </div>
+
+            <div class="info-box">
+                <h3>📈 Resultados e Impacto</h3>
+                <p><strong>Participación:</strong> Los talleres contaron con la participación activa de adultos mayores y miembros de las familias, quienes mostraron gran interés en mejorar sus prácticas de seguridad digital.</p>
+                <p><strong>Logros alcanzados:</strong></p>
+                <ul style="margin-left: 20px;">
+                    <li>Mayor conciencia sobre amenazas digitales y cómo identificarlas</li>
+                    <li>Cambio de contraseñas débiles por contraseñas seguras en cuentas principales</li>
+                    <li>Implementación de autenticación de dos factores en servicios críticos</li>
+                    <li>Reducción del miedo hacia la tecnología y aumento de la confianza</li>
+                    <li>Creación de una red de apoyo familiar para consultas de seguridad</li>
+                </ul>
+                <p><strong>Retroalimentación:</strong> Los participantes destacaron la claridad de las explicaciones, la utilidad de los ejemplos prácticos y la paciencia del equipo para resolver dudas específicas.</p>
+            </div>
+        </div>
+
 
         <footer>
             <h3>Proyecto de Responsabilidad Social UNIMINUTO</h3>
